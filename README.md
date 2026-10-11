@@ -6,6 +6,8 @@ A hands-on repository for learning JavaScript fundamentals and building toward b
 
 - `01_chapter_JS_Basics/`: Hello World and basic math examples.
 - `02_chapter_JS_Keywords_Identifiers/`: JavaScript engines, keywords, identifiers, identifier naming rules, and comments. See [Rules of Keywords and Identifiers](./02_chapter_JS_Keywords_Identifiers/Rules_of_Keywords_and_Identifiers.md) for a concise reference.
+- `03_chapter_JS_Literals/`: JavaScript literals, numbers, `null`, `undefined`, and special numeric values such as `NaN` and `Infinity`.
+- `04_chapter_JS_Operators/`: arithmetic, assignment, logical, and comparison operators, including examples of loose versus strict equality.
 
 The identifier practice in `02_chapter_JS_Keywords_Identifiers/09_IQ.js` demonstrates valid identifier characters and Unicode identifiers, contrasts valid names with invalid syntax, and shows common naming conventions: camelCase, PascalCase, snake_case, and SCREAMING_SNAKE_CASE.
 
