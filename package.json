@@ -1,0 +1,23 @@
+{
+  "name": "prompt-sync",
+  "version": "1.0.0",
+  "description": "A hands-on repository for learning JavaScript fundamentals and building toward browser automation with Playwright. It contains small, chapter-based examples for practicing core language concepts.",
+  "homepage": "https://github.com/mahuuamukkeji/LearningJSTSPlaywright#readme",
+  "bugs": {
+    "url": "https://github.com/mahuuamukkeji/LearningJSTSPlaywright/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahuuamukkeji/LearningJSTSPlaywright.git"
+  },
+  "license": "ISC",
+  "author": "Mahuua Mukkerji",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
