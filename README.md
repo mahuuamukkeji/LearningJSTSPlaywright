@@ -12,6 +12,9 @@ A hands-on repository for learning JavaScript fundamentals and building toward b
 - `06_chatper_if_else_statement_Condition/`: `if`, nested `if/else`, and multiple conditional branches.
 - `07_chapter_switch/`: `switch` statements, grouped cases, and practice questions.
 - `08_chapter_UserInput/`: terminal input using the Node.js `readline` module and `prompt-sync`, plus reading input from standard input.
+- `09_chapter_Loops/`: introductory loops and `for` loop examples, including practice questions.
+- `10_chapter_Loops_WHILE/`: `while` loops, loop counters, and stopping a loop with `break`.
+- `11_chapter_Loops_DoWhile/`: `do...while` loops, comparison with `while`, and nested loops.
 
 The identifier practice in `02_chapter_JS_Keywords_Identifiers/09_IQ.js` demonstrates valid identifier characters and Unicode identifiers, contrasts valid names with invalid syntax, and shows common naming conventions: camelCase, PascalCase, snake_case, and SCREAMING_SNAKE_CASE.
 

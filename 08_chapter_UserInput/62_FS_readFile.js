@@ -7,10 +7,7 @@ console.log("Hi", data);
 // Press Enter
 // Press Ctrl+D
 
-// In the terminal:
-// Type 15
-// Press Enter
-// Press Ctrl+D
+
 
 // best to print
 //enter value then press enter
