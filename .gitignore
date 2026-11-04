@@ -17,5 +17,6 @@ blob-report/
 coverage/
 
 # OS files
+*.log
 .DS_Store
 Thumbs.db
