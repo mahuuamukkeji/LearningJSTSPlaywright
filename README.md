@@ -1,6 +1,6 @@
 # Learning JavaScript and Playwright
 
-A hands-on, chapter-based repository for learning JavaScript fundamentals and progressing toward browser automation with Playwright. Examples cover core concepts from basics through arrays, functions, strings, objects, and multidimensional arrays.
+A hands-on, chapter-based repository for learning JavaScript fundamentals and progressing toward browser automation with Playwright. Examples cover core language concepts, data structures, and asynchronous JavaScript, from callbacks and promises to async/await.
 
 ## Repository contents
 
@@ -22,6 +22,9 @@ A hands-on, chapter-based repository for learning JavaScript fundamentals and pr
 - `16_chapter_String/`: strings and common string operations.
 - `17_Objects_JS/`: JavaScript objects, copying, and reference behavior.
 - `18_Multi_Dimensions_Array/`: multidimensional arrays and pattern examples.
+- `19_Callback/`: callback functions, synchronous and asynchronous callbacks, and callback-based control flow.
+- `20_Promise/`: creating and chaining promises, promise cleanup, and the `all`, `allSettled`, and `race` combinators.
+- `21_Async_Await/`: using `async` and `await` to write promise-based code.
 
 The identifier practice in `02_chapter_JS_Keywords_Identifiers/09_IQ.js` demonstrates valid identifier characters and Unicode identifiers, contrasts valid names with invalid syntax, and shows common naming conventions: camelCase, PascalCase, snake_case, and SCREAMING_SNAKE_CASE.
 
