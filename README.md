@@ -142,6 +142,14 @@ A chapter-by-chapter learning repo for testers moving into JavaScript, TypeScrip
   - [166: Sequential vs Parallel](#166-sequential-vs-parallel)
   - [168: Retry Pattern](#168-retry-pattern)
   - [169: Async Interview Questions](#169-async-interview-questions)
+- [Chapter 22: Export and Import](#chapter-22-export-and-import)
+  - [172: Named Exports and Imports](#172-named-exports-and-imports)
+  - [173: Renaming Imports with as](#173-renaming-imports-with-as)
+  - [174: Default vs Named Exports](#174-default-vs-named-exports)
+- [Chapter 23: Classes and Objects](#chapter-23-classes-and-objects)
+  - [175: Class and Objects](#175-class-and-objects)
+- [Chapter 24: Playwright](#chapter-24-playwright)
+  - [Your First Playwright Project](#your-first-playwright-project)
 - [Learning Notes](#learning-notes)
 - [Coming Up](#coming-up)
 
@@ -171,9 +179,11 @@ flowchart LR
     C17 --> C18["18 2D Arrays and Patterns<br/>grid[row][col], star patterns"]:::done
     C18 --> C19["19 Callbacks<br/>sync, async, callback hell"]:::done
     C19 --> C20["20 Promises<br/>then, catch, all, race"]:::done
-    C20 --> C21["21 Async and Await<br/>try/catch, parallel, retry"]:::progress
-    C21 --> TS["TypeScript"]:::planned
-    TS --> PW["Playwright"]:::planned
+    C20 --> C21["21 Async and Await<br/>try/catch, parallel, retry"]:::done
+    C21 --> C22["22 Export and Import<br/>default vs named"]:::done
+    C22 --> C23["23 Classes and Objects<br/>class, new, #private"]:::progress
+    C23 --> C24["24 Playwright<br/>first project"]:::progress
+    C24 --> TS["TypeScript"]:::planned
 
     classDef done fill:#d1fae5,stroke:#059669,color:#064e3b
     classDef progress fill:#fef3c7,stroke:#d97706,color:#78350f
@@ -207,7 +217,10 @@ flowchart LR
 | 18 | Multi-Dimensional Arrays and Patterns | [18_Multi_Dimensions_Array](18_Multi_Dimensions_Array/) | ✅ Done | 2D arrays, `grid[row][col]`, nested loops over a grid, row totals with `map` and `reduce`, triangle and pyramid star patterns |
 | 19 | Callbacks | [19_Callback](19_Callback/) | ✅ Done | Passing functions, sync vs async callbacks, `setTimeout`, callback hell |
 | 20 | Promises | [20_Promise](20_Promise/) | ✅ Done | `then`, `catch`, `finally`, chaining, `Promise.all`, `allSettled`, `race`, interview drills |
-| 21 | Async and Await | [21_Async_Await](21_Async_Await/) | 🟡 In progress | `async` functions, `await`, `try/catch/finally`, `await` in Playwright tests, sequential vs parallel, retries, interview drills |
+| 21 | Async and Await | [21_Async_Await](21_Async_Await/) | ✅ Done | `async` functions, `await`, `try/catch/finally`, `await` in Playwright tests, sequential vs parallel, retries, interview drills |
+| 22 | Export and Import | [22_Export_Import](22_Export_Import/) | ✅ Done | Named exports, `import { }`, renaming with `as`, default vs named exports |
+| 23 | Classes and Objects | [23_Class_Objects](23_Class_Objects/) | 🟡 In progress | `class`, `new`, private `#` fields, methods |
+| 24 | Playwright | [24_Playwright](24_Playwright/) | 🟡 In progress | A real Playwright project: config, first tests, running them in three browsers |
 
 ---
 
@@ -221,7 +234,9 @@ LearnJSTSPlaywright4x/
 ├── package-lock.json
 ├── assets/images/                          # Banner and chapter cheat-sheet images used in this README
 ├── 00_learning/                            # Short explainer notes (see Learning Notes below)
+│   ├── Default vs Named Exports.pdf        # The same explainer, saved from the browser (landscape)
 │   ├── chatAt_vs_At_string.md              # charAt(i) vs at(i)
+│   ├── default_vs_named_export_eli5.pdf    # ELI5 picture explainer: default vs named exports
 │   ├── object_reference_copy_eli5.html     # ELI5 picture page: why let b = a changes a
 │   ├── playwright_page_methods_await.md    # Every page. method and whether it needs await
 │   └── rarely_needed_string_methods.md     # isWellFormed, normalize, legacy HTML wrappers
@@ -415,17 +430,31 @@ LearnJSTSPlaywright4x/
 │   ├── 159_Promise.Settle.js               # Promise.allSettled: report every result
 │   ├── 160_Promise.race.js                 # Promise.race: first to finish wins
 │   └── 161_IQ.js                           # Interview drills: chains, throw, finally
-└── 21_Async_Await/
-    ├── 162_Async_Await.js                  # async function + await on an API call
-    ├── 163_AA.js                           # An async function's promise, try/catch/finally
-    ├── 164_Playwright.spec.ts              # await page.goto in a real Playwright test
-    ├── 165_Playwright2.spec.ts             # await on page.goto and on your own async function
-    ├── 166_SEQ.executin.js                 # Sequential awaits: about 3 seconds
-    ├── 167_Parallel_Ex.js                  # Promise.all: about 1 second
-    ├── 168_API_Flaky_Finder.js             # Start of a retry helper for flaky APIs
-    ├── 169_IQ.js                           # Interview drills: then, await, steps in order
-    ├── 170_IQ.js                           # Interview drills: try, catch, finally
-    └── 171_IQ.js                           # Interview drill: prints A, B, D, C
+├── 21_Async_Await/
+│   ├── 162_Async_Await.js                  # async function + await on an API call
+│   ├── 163_AA.js                           # An async function's promise, try/catch/finally
+│   ├── 164_Playwright.spec.ts              # await page.goto in a real Playwright test
+│   ├── 165_Playwright2.spec.ts             # await on page.goto and on your own async function
+│   ├── 166_SEQ.executin.js                 # Sequential awaits: about 3 seconds
+│   ├── 167_Parallel_Ex.js                  # Promise.all: about 1 second
+│   ├── 168_API_Flaky_Finder.js             # Start of a retry helper for flaky APIs
+│   ├── 169_IQ.js                           # Interview drills: then, await, steps in order
+│   ├── 170_IQ.js                           # Interview drills: try, catch, finally
+│   └── 171_IQ.js                           # Interview drill: prints A, B, D, C
+├── 22_Export_Import/
+│   ├── testutils.js                        # Named exports: BASE_URL, formatUpperCaseString
+│   ├── 172_IE.js                           # import { BASE_URL, formatUpperCaseString }
+│   ├── utils.js                            # Another BASE_URL, formatTestName (plus a LoginPage sketch)
+│   ├── 173.js                              # Renaming imports with as
+│   ├── logs/logger.js                      # export default log, plus named logBetter, logBetter2
+│   └── 174_Logs.js                         # Importing a default and named exports
+├── 23_Class_Objects/
+│   └── 175_Class.js                        # class Person: private # fields, methods, new
+└── 24_Playwright/                          # Its own Playwright project (run commands inside it)
+    ├── package.json                        # @playwright/test
+    ├── playwright.config.ts                # testDir, retries, reporter, 3 browser projects
+    ├── tests/example.spec.ts               # Two tests against playwright.dev
+    └── .gitignore                          # node_modules, test-results, playwright-report
 ```
 
 ---
@@ -442,7 +471,7 @@ node --version                              # v18+ (tested on v22)
 node 01_chapter_JS_Basics/01_HelloWorld.js  # Hello World!
 ```
 
-Every `.js` lesson runs the same way: `node <chapter folder>/<file>.js`. The `.spec.ts` files in Chapter 21 run with Playwright instead (see lesson 164).
+Every `.js` lesson runs the same way: `node <chapter folder>/<file>.js`. The `.spec.ts` files in Chapter 21 run with Playwright instead (see lesson 164). Chapter 24 is its own Playwright project: `cd 24_Playwright && npm install && npx playwright install && npx playwright test`.
 
 ---
 
@@ -5041,12 +5070,251 @@ riskyTest();
 
 ---
 
+## Chapter 22: Export and Import
+
+### 172: Named Exports and Imports
+
+**Concept:** Putting `export` in front of a variable or function lets other files use it. `import { BASE_URL, formatUpperCaseString } from './testutils.js'` then pulls those exact names into another file.
+
+**Why:** Test code gets split across files (URLs and config in one, helpers in another, tests elsewhere), and modules let each file share only what it means to.
+
+**Q&A: why use this?**
+- **Q: When do I reach for it?** A: Shared test data and helpers, such as one `BASE_URL` instead of a copy in every test. Playwright itself works this way: `import { test, expect } from '@playwright/test'`.
+- **Q: What does it replace?** A: Copy-pasting the same constants into every file. It is like Java's `public` plus `import`.
+- **Q: What's the gotcha?** A: Only exported names can be imported: `fname` in `testutils.js` has no `export`, so `import { fname }` fails with `does not provide an export named 'fname'`. In Node the path needs the `.js` extension. Node also prints a `MODULE_TYPELESS_PACKAGE_JSON` warning for these files; it's harmless, and adding `"type": "module"` to `package.json` would break the `require()` lessons in Chapter 08.
+
+```mermaid
+flowchart LR
+    T["testutils.js<br/>export BASE_URL<br/>export formatUpperCaseString<br/>fname (not exported)"] -->|"import { BASE_URL, formatUpperCaseString }"| I["172_IE.js"]
+    T -.->|"fname stays inside its file"| X["cannot be imported"]
+```
+
+```js
+// 22_Export_Import/testutils.js
+export let BASE_URL = "https://app.vwo.com";
+
+export function formatUpperCaseString(sname) {
+    return sname.toUpperCase();
+}
+
+let fname = "Pramod";   // not exported: stays inside this file
+
+// 22_Export_Import/172_IE.js
+import { BASE_URL, formatUpperCaseString } from './testutils.js';
+
+console.log(BASE_URL);                          // https://app.vwo.com
+console.log(formatUpperCaseString("Pramod"));   // PRAMOD
+```
+
+### 173: Renaming Imports with as
+
+**Concept:** Two files can export the same name (`BASE_URL` in both `utils.js` and `testutils.js`). `import { BASE_URL as bul_util }` gives it a local name, so both can be used in one file.
+
+**Why:** Name clashes are common once a project grows, for example an API base URL and a UI base URL.
+
+**Q&A: why use this?**
+- **Q: When do I reach for it?** A: When two modules export the same name, or when the exported name is unclear in the file that uses it.
+- **Q: What does it replace?** A: Renaming the export in its own file, which breaks every other file that imports it.
+- **Q: What's the gotcha?** A: The path must match the file exactly. `173.js` imports `./testutil.js`, but the file is `testutils.js`, so Node stops with `ERR_MODULE_NOT_FOUND` before printing anything.
+
+```mermaid
+flowchart LR
+    U["utils.js<br/>BASE_URL = https://api.example.com"] -->|"as bul_util"| F["173.js"]
+    T["testutils.js<br/>BASE_URL = https://app.vwo.com"] -->|"as bul_testtul"| F
+```
+
+```js
+// 22_Export_Import/173.js (with the file name fixed to testutils.js)
+import { BASE_URL as bul_util, formatTestName } from "./utils.js";
+import { BASE_URL as bul_testtul } from "./testutils.js";
+
+console.log(bul_util);                  // https://api.example.com
+console.log(bul_testtul);               // https://app.vwo.com
+console.log(formatTestName("login"));   // TC_LOGIN
+
+// 22_Export_Import/utils.js (excerpt)
+export let BASE_URL = "https://api.example.com";
+
+export function formatTestName(name) {
+    return "TC_" + name.toUpperCase();
+}
+```
+
+### 174: Default vs Named Exports
+
+![Default vs named exports: logs/logger.js holds one default gift and two named tags, logBetter and logBetter2; import log from takes the default with no braces and any name; import { logBetter } from takes a named export with braces and the exact name](assets/images/ch22-default-vs-named.png)
+
+**Concept:** A file can have one `export default` (its main thing, imported without braces under any name you like) and any number of named exports (imported in braces by their exact name).
+
+**Why:** It is the other half of the module system, and you will see both styles in every codebase, including Playwright's own `import { test, expect } from '@playwright/test'`.
+
+**Q&A: why use this?**
+- **Q: When do I reach for it?** A: A default for a file's one main thing (a logger, a page object class), and named exports for groups of helpers and constants. [default_vs_named_export_eli5.pdf](00_learning/default_vs_named_export_eli5.pdf) explains it with pictures.
+- **Q: What does it replace?** A: Nothing; the two styles work together, and one import line can take both: `import log, { logBetter } from './logs/logger.js'`.
+- **Q: What's the gotcha?** A: `import { log }` fails, because the default's function name is not a named export. Two `export default`s in one file is a `SyntaxError`. And this repo's `.gitignore` ignores every `logs/` folder, so `logs/logger.js` had to be added with `git add -f`; without it, `174_Logs.js` would break for anyone who clones the repo.
+
+```mermaid
+flowchart LR
+    L["logs/logger.js"] -->|"export default log"| D["import log from ...<br/>no { }, any name"]
+    L -->|"export logBetter, logBetter2"| N["import { logBetter } from ...<br/>{ } and the exact name"]
+```
+
+| | Default export | Named export |
+|:--|:--|:--|
+| How many per file | One | As many as you want |
+| Import with | `import log from './logs/logger.js'` | `import { logBetter } from './logs/logger.js'` |
+| Name on import | Anything you like | The exact name, or rename with `as` |
+
+```js
+// 22_Export_Import/logs/logger.js (excerpt)
+export default function log(message) {
+    console.log("[LOG] " + message);
+}
+
+export function logBetter(message) {
+    console.log("-----------");
+    console.log("[LOGS] " + message);
+    console.log("-----------");
+}
+
+// 22_Export_Import/174_Logs.js
+import log from './logs/logger.js';                        // default: no { }, any name
+import { logBetter, logBetter2 } from './logs/logger.js';  // named: { } and exact names
+
+log('Starting');                                    // [LOG] Starting
+logBetter("Starting the TC of the app.vwo.com");    // the message between two dashed lines
+```
+
+---
+
+## Chapter 23: Classes and Objects
+
+### 175: Class and Objects
+
+![Class vs object: class Person is a blueprint with #name, #age, eat() and sleep(); new Person() builds two separate objects, pramod and amit; # fields are private to the class](assets/images/ch23-class-object.png)
+
+**Concept:** A class is a blueprint. It lists the data each object holds (fields like `#name`) and what each object can do (methods like `eat()`). `new Person()` builds a separate object from that blueprint every time.
+
+**Why:** Playwright's Page Object Model is built from classes (`class LoginPage { ... }` with locators as fields and actions as methods), and `utils.js` already sketches one in its comments.
+
+**Q&A: why use this?**
+- **Q: When do I reach for it?** A: Whenever several things share a shape: users, test-data builders and page objects.
+- **Q: What does it replace?** A: Java classes, with less ceremony: no types, `#` instead of `private`, and methods without the `function` keyword.
+- **Q: What's the gotcha?** A: `#` fields really are private: `pramod.#name` outside the class is a `SyntaxError`, and `pramod["#name"]` is just `undefined`. Each `new` makes a different object, so `pramod === amit` is `false`. Calling `Person()` without `new` throws a `TypeError`, and using a class above its declaration throws a `ReferenceError`.
+
+```mermaid
+flowchart LR
+    C["class Person<br/>#name, #age<br/>eat(), sleep()"] -->|"new Person()"| P["pramod"]
+    C -->|"new Person()"| A["amit"]
+    P -.-|"pramod === amit is false"| A
+```
+
+```js
+// 23_Class_Objects/175_Class.js (plus a constructor, so the objects hold data)
+class Person {
+    // Attributes | Instance variables | Data members | Properties
+    #name;
+    #age;
+
+    constructor(name, age) {
+        this.#name = name;
+        this.#age = age;
+    }
+
+    // Behaviour | Methods | Member functions
+    eat() { return this.#name + " is eating"; }
+    sleep() { return this.#name + " is sleeping"; }
+}
+
+const pramod = new Person("Pramod", 30);   // object -> new Person(), object ref -> pramod
+const amit = new Person("Amit", 28);
+
+console.log(pramod.eat());      // Pramod is eating
+console.log(amit.sleep());      // Amit is sleeping
+console.log(pramod === amit);   // false: two separate objects
+// console.log(pramod.#name);   SyntaxError: #name is private to the class
+```
+
+---
+
+## Chapter 24: Playwright
+
+### Your First Playwright Project
+
+![What npx playwright test does: it reads playwright.config.ts (testDir and projects), runs tests/example.spec.ts in chromium, firefox and webkit, and writes an HTML report; on the first run, use npx playwright install](assets/images/ch24-playwright-run.png)
+
+**Concept:** `24_Playwright/` is a complete Playwright test project. `package.json` installs `@playwright/test`, `playwright.config.ts` says where the tests live and which browsers to use, and `tests/example.spec.ts` holds two tests. `npx playwright test` runs every test in every browser project.
+
+**Why:** This is where the JavaScript chapters turn into test automation: functions, arrow functions, `async/await` and imports all appear in these few lines.
+
+**Q&A: why use this?**
+- **Q: When do I reach for it?** A: Every Playwright project starts from this layout; it's what `npm init playwright@latest` generates. Run the commands from inside `24_Playwright/`, since it has its own `package.json`.
+- **Q: What does it replace?** A: The Selenium + TestNG setup from Chapter 00: no driver binaries to manage, built-in auto-waiting, and the test runner and assertions in one package.
+- **Q: What's the gotcha?** A: The config has 3 browser projects, so the 2 tests run 6 times, and each browser has to be downloaded once with `npx playwright install`. On this machine, Chromium passed but Firefox and WebKit failed with `Executable doesn't exist ... npx playwright install`. Also, the `html` reporter opens a report in your browser when a test fails; add `--reporter=line` to stay in the terminal.
+
+```mermaid
+flowchart LR
+    CMD["npx playwright test"] --> CFG["playwright.config.ts<br/>testDir: './tests'<br/>3 projects"]
+    CFG --> SPEC["tests/example.spec.ts<br/>2 tests"]
+    SPEC --> B1["chromium"]
+    SPEC --> B2["firefox"]
+    SPEC --> B3["webkit"]
+    B1 --> R["HTML report"]
+    B2 --> R
+    B3 --> R
+```
+
+| Config setting | Value | What it means |
+|:---------------|:------|:--------------|
+| `testDir` | `'./tests'` | Where the test files live |
+| `fullyParallel` | `true` | Tests inside a file run in parallel |
+| `forbidOnly` | `!!process.env.CI` | A forgotten `test.only` fails the CI run |
+| `retries` | `process.env.CI ? 2 : 0` | Retry twice on CI, never locally (the ternary from lesson 28) |
+| `workers` | `process.env.CI ? 1 : undefined` | One worker on CI, Playwright's default locally |
+| `reporter` | `'html'` | An HTML report in `playwright-report/` |
+| `use.trace` | `'on-first-retry'` | Record a trace when a test is retried |
+| `projects` | chromium, firefox, webkit | Which browsers the tests run in |
+
+```ts
+// 24_Playwright/tests/example.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+test('get started link', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Click the get started link.
+  await page.getByRole('link', { name: 'Get started' }).click();
+
+  // Expects page to have a heading with the name of Installation.
+  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+});
+```
+
+```bash
+cd 24_Playwright
+npm install                                               # installs @playwright/test
+npx playwright install                                    # downloads the browsers (first time only)
+npx playwright test                                       # 2 tests x 3 browsers = 6 runs
+npx playwright test --project=chromium --reporter=line    # one browser, terminal output
+npx playwright show-report                                # opens the last HTML report
+```
+
+---
+
 ## Learning Notes
 
 Short explainers kept in [00_learning/](00_learning/), written while working through the lessons.
 
 | Note | What it explains |
 |:-----|:-----------------|
+| [default_vs_named_export_eli5.pdf](00_learning/default_vs_named_export_eli5.pdf) | Default vs named exports explained like you are 5, with pictures (2 pages). [Default vs Named Exports.pdf](00_learning/Default%20vs%20Named%20Exports.pdf) is the same explainer saved from the browser in landscape. |
 | [chatAt_vs_At_string.md](00_learning/chatAt_vs_At_string.md) | `charAt(i)` vs `at(i)` on strings: negative indexes, out-of-range results, with comparison tables |
 | [playwright_page_methods_await.md](00_learning/playwright_page_methods_await.md) | Every method and property on Playwright's `page` (118 members, v1.65.0): what it returns and whether it needs `await` |
 | [rarely_needed_string_methods.md](00_learning/rarely_needed_string_methods.md) | `isWellFormed`, `toWellFormed`, `normalize`, `valueOf`, and the legacy HTML wrappers you should never use |
@@ -5056,5 +5324,5 @@ Short explainers kept in [00_learning/](00_learning/), written while working thr
 
 ## Coming Up
 
-- **Chapter 21: Async and Await** continues.
-- Then TypeScript, then Playwright.
+- **Chapter 23: Classes and Objects** and **Chapter 24: Playwright** continue.
+- Then TypeScript.
