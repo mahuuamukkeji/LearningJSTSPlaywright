@@ -1,6 +1,6 @@
 # Learning JavaScript and Playwright
 
-A hands-on, chapter-based repository for learning JavaScript fundamentals and progressing toward browser automation with Playwright. Examples cover core language concepts, data structures, and asynchronous JavaScript, from callbacks and promises to async/await.
+A hands-on, chapter-based repository for learning JavaScript fundamentals and progressing toward browser automation with Playwright. Examples cover core language concepts, data structures, asynchronous JavaScript, ES modules, and classes.
 
 ## Repository contents
 
@@ -25,7 +25,20 @@ A hands-on, chapter-based repository for learning JavaScript fundamentals and pr
 - `19_Callback/`: callback functions, synchronous and asynchronous callbacks, and callback-based control flow.
 - `20_Promise/`: creating and chaining promises, promise cleanup, and the `all`, `allSettled`, and `race` combinators.
 - `21_Async_Await/`: using `async` and `await` to write promise-based code.
+- `22_Export_Import/`: named and default exports, imports, and renaming imports.
+- `23_Class_Objects/`: defining classes and creating objects.
+- `24_Playwright/`: an introductory Playwright project with a sample configuration and browser tests.
+- `tests/` and `playwright.config.ts`: root-level Playwright browser tests and configuration.
 
 The identifier practice in `02_chapter_JS_Keywords_Identifiers/09_IQ.js` demonstrates valid identifier characters and Unicode identifiers, contrasts valid names with invalid syntax, and shows common naming conventions: camelCase, PascalCase, snake_case, and SCREAMING_SNAKE_CASE.
 
-Examples are standalone JavaScript files intended for learning and experimentation. To run an example, use `node path/to/example.js` from the repository root. The `prompt-sync` example requires dependencies to be installed first with `npm install`. For `62_FS_readFile.js`, enter input and end it with Ctrl+D on macOS/Linux or Ctrl+Z, then Enter, on Windows.
+Examples are standalone JavaScript files intended for learning and experimentation. To run an example, use `node path/to/example.js` from the repository root. Install dependencies with `npm install` before running examples that use `prompt-sync`.
+
+To run the root Playwright tests, install the browser binaries once and then run the test suite:
+
+```sh
+npx playwright install
+npx playwright test
+```
+
+For `62_FS_readFile.js`, enter input and end it with Ctrl+D on macOS/Linux or Ctrl+Z, then Enter, on Windows.
