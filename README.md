@@ -8,6 +8,37 @@
 
 A chapter-by-chapter learning repo for testers moving into JavaScript, TypeScript, and Playwright automation. Every chapter is a folder, every lesson is a small file you can run on its own.
 
+## Overview
+
+This repository is designed to help QA engineers, manual testers, and automation beginners build real automation skills in a practical, step-by-step way. It starts with JavaScript fundamentals, expands into TypeScript concepts, and ends with Playwright-based browser automation.
+
+### What you will learn
+
+- Core JavaScript syntax and logic building blocks
+- Modern JavaScript patterns used in real automation code
+- TypeScript basics and safe coding habits
+- Browser automation with Playwright
+- How to structure small test exercises and run them locally
+
+### Quick start
+
+```bash
+# install dependencies
+npm install
+
+# install browsers for Playwright
+npx playwright install
+
+# run the sample Playwright tests
+npx playwright test
+```
+
+To run a single spec:
+
+```bash
+npx playwright test tests/example.spec.ts --project=chromium
+```
+
 ---
 
 ## Table of Contents
