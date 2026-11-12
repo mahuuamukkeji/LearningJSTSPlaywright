@@ -461,7 +461,7 @@ LearnJSTSPlaywright4x/
 
 ## Getting Started
 
-You only need [Node.js](https://nodejs.org/) 18 or newer. Chapter 08 uses one npm package ([prompt-sync](https://www.npmjs.com/package/prompt-sync)), so run `npm install` once after cloning.
+You only need [Node.js](https://nodejs.org/) 18 or newer. The JavaScript examples use [prompt-sync](https://www.npmjs.com/package/prompt-sync), and the root-level Playwright tests use `@playwright/test`; run `npm install` once after cloning.
 
 ```bash
 git clone https://github.com/PramodDutta/LearnJSTSPlaywright4x.git
@@ -471,7 +471,7 @@ node --version                              # v18+ (tested on v22)
 node 01_chapter_JS_Basics/01_HelloWorld.js  # Hello World!
 ```
 
-Every `.js` lesson runs the same way: `node <chapter folder>/<file>.js`. The `.spec.ts` files in Chapter 21 run with Playwright instead (see lesson 164). Chapter 24 is its own Playwright project: `cd 24_Playwright && npm install && npx playwright install && npx playwright test`.
+Every `.js` lesson runs the same way: `node <chapter folder>/<file>.js`. The root-level Playwright tests are in `tests/`; install the browser binaries once with `npx playwright install`, then run them with `npm test`. Chapter 24 is a separate Playwright project with its own dependencies: `cd 24_Playwright && npm install && npx playwright install && npx playwright test`.
 
 ---
 
@@ -4866,7 +4866,7 @@ testAPI();
 **Q&A: why use this?**
 - **Q: When do I reach for it?** A: In every Playwright test. [playwright_page_methods_await.md](00_learning/playwright_page_methods_await.md) lists every `page` method and whether it needs `await`. Your own async helpers need it too: `let c = await getExmaple();` in `165_Playwright2.spec.ts`.
 - **Q: What does it replace?** A: Selenium's blocking Java calls: `driver.get(url)` waits by itself, while in Playwright you write `await page.goto(url)`.
-- **Q: What's the gotcha?** A: `node` can't run these files, and this repo doesn't install Playwright yet (`package.json` lists only `prompt-sync`). Run `npm i -D @playwright/test` and `npx playwright install`, then `npx playwright test`. Also, `page.goto("")` in `165_Playwright2.spec.ts` fails with `Cannot navigate to invalid URL`, so give it a real URL.
+- **Q: What's the gotcha?** A: `node` can't run these files. The root package includes `@playwright/test`, but browser binaries must be installed with `npx playwright install`. Also, `page.goto("")` in `165_Playwright2.spec.ts` fails with `Cannot navigate to invalid URL`, so give it a real URL.
 
 ```mermaid
 sequenceDiagram
