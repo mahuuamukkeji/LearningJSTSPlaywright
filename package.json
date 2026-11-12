@@ -1,25 +1,22 @@
 {
-  "name": "prompt-sync",
+  "name": "learnjstsplaywright4x",
   "version": "1.0.0",
-  "description": "A hands-on repository for learning JavaScript fundamentals and building toward browser automation with Playwright. It contains small, chapter-based examples for practicing core language concepts.",
-  "homepage": "https://github.com/mahuuamukkeji/LearningJSTSPlaywright#readme",
-  "bugs": {
-    "url": "https://github.com/mahuuamukkeji/LearningJSTSPlaywright/issues"
+  "description": "![Learn JavaScript, TypeScript & Playwright: chapter by chapter, built for testers](assets/images/banner.png)",
+  "maclin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mahuuamukkeji/LearningJSTSPlaywright.git"
+    "url": "git+https://github.com/PramodDutta/LearnJSTSPlaywright4x.git"
   },
+  "author": "PrrmmodDutta",
   "license": "ISC",
-  "author": "Mahuua Mukkerji",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/PramodDutta/LearnJSTSPlaywright4x/issues"
+  },
+  "homepage": "https://github.com/PramodDutta/LearnJSTSPlaywright4x#readme",
   "dependencies": {
     "prompt-sync": "^4.2.0"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.65.0",
-    "@types/node": "^26.6.6"
   }
 }

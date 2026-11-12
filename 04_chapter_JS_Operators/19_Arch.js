@@ -5,3 +5,4 @@ let a = 10+3;
 
 // string, number, boolean, bigInt, undefined, null, Symbol
 // array, NaN, Inifity
+

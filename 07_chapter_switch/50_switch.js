@@ -2,7 +2,7 @@ let day = 2;
 //. day 1 - mon, 2 tue...
 
 switch(day){
-    case 1:
+    case 1: 
         console.log("Monday");
         break;
     case 2:
@@ -29,3 +29,4 @@ switch(day){
     default:
         console.log("No idea which day it is");
 }
+    

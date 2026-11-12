@@ -11,7 +11,7 @@
 // pizza == pizza // ( type)
 // domin === pizzahut // (type and content)
 
-// > , < , >= , <=
+// > , < , >= , <= 
 
 
 // console.log(3 > 4);

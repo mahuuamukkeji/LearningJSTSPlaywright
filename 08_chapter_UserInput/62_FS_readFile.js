@@ -6,10 +6,3 @@ console.log("Hi", data);
 // Type 15
 // Press Enter
 // Press Ctrl+D
-
-
-
-// best to print
-//enter value then press enter
-// in the next line press ctrl+z
-//then press enter

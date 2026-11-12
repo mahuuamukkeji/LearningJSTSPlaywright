@@ -61,7 +61,7 @@
 // ```
 
 let score = 95;
-// user input...
+// user input... 
 // score will be int
 
 if (score > 100 || score < 0) {
@@ -88,3 +88,4 @@ if (score > 100 || score < 0) {
         console.log("Grade F - Fail");
     }
 }
+

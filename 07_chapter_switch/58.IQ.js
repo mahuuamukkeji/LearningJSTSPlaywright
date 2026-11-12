@@ -9,3 +9,4 @@ switch (status) { // // === Strict, value and data type both of them shoul be sa
         console.log("0 matched");
         break;
 }
+

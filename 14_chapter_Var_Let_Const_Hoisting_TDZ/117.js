@@ -5,3 +5,5 @@ const c = 10;
 console.log(a);
 console.log(l);
 console.log(c);
+
+

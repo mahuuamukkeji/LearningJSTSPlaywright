@@ -6,3 +6,4 @@ console.log(rest); // [30, 40, 50]
 
 let [, , thirdOnly] = [10, 20, 30];
 console.log(thirdOnly);
+

@@ -14,4 +14,4 @@ Promise.all([
     Promise.resolve("OK")
 ])
     .then(function (r) { console.log(r); })
-    .catch(function (err) { console.log("Failed:"
+    .catch(function (err) { console.log("Failed:", err); });

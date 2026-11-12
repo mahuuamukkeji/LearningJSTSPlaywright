@@ -6,5 +6,5 @@ if(age > 21){
     console.log("Drink");
     console.log("Go goa");
 }else{
-    console.log("No Able to Drive");
+    console.log("No Able to DRIve");
 }

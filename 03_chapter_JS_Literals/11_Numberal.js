@@ -1,5 +1,5 @@
 let age =  "pramod"; // String literal.
-let age2 =  'pramod';
+let age2 =  'pramod'; 
 
 let isStudent = true;
  // This is a boolean literal assigned to the variable 'isStudent'.
@@ -15,7 +15,7 @@ let isStudent = true;
 // 1. int
 // 2. float
 
-// // typeof - operatr - It will tell you what is a data type that it has.
+// // typeof - operatr - It will tell you what is a data type that it has. 
 console.log(typeof age);
 console.log(typeof age2);
 console.log(typeof pi);

@@ -8,7 +8,7 @@
   undefined  ->  A variable exists, but it has not been assigned any value yet.
                  JavaScript itself sets this automatically.
 
-  null       ->  A variable exists, but the developer explicitly assigns
+  null       ->  A variable exists, but the developer explicitly assigns 
                 "no value" or "empty".
                  It is intentional absence of any value.
 */
@@ -30,7 +30,7 @@ console.log(typeof userName);
 // function greet() {
 //     // no return statement
 // }
-// console.log(greet());
+// console.log(greet()); 
 
 let x;
 x = 10;
@@ -52,3 +52,4 @@ console.log(typeof profilePicture); // "object"   <-- known JS quirk!
   | ==  comparison        | null == undefined  -> true    |                                |
   | === comparison       | null === undefined -> false   |                                |
 */
+

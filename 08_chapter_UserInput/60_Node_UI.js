@@ -14,6 +14,6 @@ rl.question("Enter a number: ", (input) => {
         console.log(num + " is Odd");
     }
 
-    rl.close();
+    rl.close(); 
 
 });

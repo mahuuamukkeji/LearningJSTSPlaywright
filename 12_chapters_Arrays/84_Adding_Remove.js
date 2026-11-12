@@ -1,3 +1,9 @@
+let arr = [1,2,3];
+console.log(arr);
+
+// Add to END
+arr.push(4);
+console.log(arr);
 
 // Remove from END
 arr.pop();
