@@ -192,7 +192,7 @@ A chapter-by-chapter learning repo for testers moving into JavaScript, TypeScrip
 - [Chapter 35: Abstract Classes](#chapter-35-abstract-classes)
   - [239: Abstract Classes](#239-abstract-classes)
 - [Learning Notes](#learning-notes)
-- [Coming Up](#coming-up)
+- [Currently Working On](#currently-working-on)
 
 ---
 
@@ -234,7 +234,7 @@ flowchart LR
     C31 --> C32["32 Interfaces and Enums<br/>interface, readonly, implements, enum"]:::done
     C32 --> C33["33 Generics<br/>functions, classes"]:::done
     C33 --> C34["34 Access Modifiers<br/>public, private, protected"]:::done
-    C34 --> C35["35 Abstract Classes"]:::progress
+    C34 --> C35["35 Abstract Classes"]:::done
 
     classDef done fill:#d1fae5,stroke:#059669,color:#064e3b
     classDef progress fill:#fef3c7,stroke:#d97706,color:#78350f
@@ -282,7 +282,7 @@ flowchart LR
 | 32 | Interfaces and Enums | [32_Abstraction_OOPs](32_Abstraction_OOPs/) | ✅ Done | `interface`, `extends`, optional `?` and `readonly` properties, function interfaces, `implements`, string `enum` |
 | 33 | Generics | [33_OOPs_Generic](33_OOPs_Generic/) | ✅ Done | Generic functions `<T>`, generic classes, typed API response wrapper, `!` non-null assertion |
 | 34 | Access Modifiers | [34_private_public_protected](34_private_public_protected/) | ✅ Done | `public`, `private`, `protected`, a protected `BasePage`, `private readonly` config |
-| 35 | Abstract Classes | [35_TS_Abstract_Class](35_TS_Abstract_Class/) | 🟡 In progress | `abstract` classes and methods, ready-made methods in the same parent |
+| 35 | Abstract Classes | [35_TS_Abstract_Class](35_TS_Abstract_Class/) | ✅ Done | `abstract` classes and methods, ready-made methods in the same parent |
 
 ---
 
@@ -612,7 +612,7 @@ LearnJSTSPlaywright4x/
 You only need [Node.js](https://nodejs.org/) 18 or newer. Chapter 08 uses one npm package ([prompt-sync](https://www.npmjs.com/package/prompt-sync)), so run `npm install` once after cloning.
 
 ```bash
-git clone https://github.com/PramodDutta/LearnJSTSPlaywright4x.git
+git clone https://github.com/mahuuamukkeji/LearningJSTSPlaywright.git
 cd LearnJSTSPlaywright4x
 npm install                                 # installs prompt-sync for chapter 08
 node --version                              # v18+ (tested on v22)
@@ -6874,6 +6874,6 @@ Short explainers kept in [00_learning/](00_learning/), written while working thr
 
 ---
 
-## Coming Up
+## Currently Working On
 
-- **Chapter 24: Playwright** and **Chapter 35: Abstract Classes** continue.
+- **Chapter 24: Playwright** continues with practical automation examples and test-project coverage.
