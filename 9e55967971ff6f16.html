@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regex to extract an email ID</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
+    pre  { background: #f4f4f4; padding: 1rem; overflow-x: auto; border-radius: 6px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    h1, h2, h3 { line-height: 1.25; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #ddd; padding: 6px 10px; }
+  </style>
+</head>
+<body>
+<h1>Regex to extract an email ID</h1>
+
+<pre><code>let msg = "Pramod Dutta is a very handsome man. He has an email ID of pramod@gmail.com, and he is working almost 10 hours per day. Something like";
+
+let email = msg.match(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/);
+console.log(email[0]);   // pramod@gmail.com</code></pre>
+
+<h2>How the pattern reads</h2>
+<table>
+  <thead><tr><th>Part</th><th>Means</th><th>Matches in <code>pramod@gmail.com</code></th></tr></thead>
+  <tbody>
+    <tr><td><code>[\w.+-]+</code></td><td>One or more letters, digits, <code>_</code>, <code>.</code>, <code>+</code> or <code>-</code></td><td><code>pramod</code></td></tr>
+    <tr><td><code>@</code></td><td>A literal @</td><td><code>@</code></td></tr>
+    <tr><td><code>[\w-]+</code></td><td>The domain name</td><td><code>gmail</code></td></tr>
+    <tr><td><code>(?:\.[\w-]+)+</code></td><td>One or more <code>.something</code> parts, grouped without capturing</td><td><code>.com</code> (or <code>.co.in</code>)</td></tr>
+  </tbody>
+</table>
+
+<h2>Notes</h2>
+<ul>
+  <li><strong>Use a regex literal</strong> (<code>/.../</code>), not a string. <code>msg.match("...")</code> works, but every backslash then has to be doubled (<code>"\\w"</code>).</li>
+  <li><strong>No match gives <code>null</code></strong>, so <code>email[0]</code> would throw. Guard it: <code>const email = msg.match(re)?.[0];</code></li>
+  <li><strong>All emails:</strong> add the <code>g</code> flag. <code>msg.match(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g)</code> returns an array of every email, e.g. <code>["a.b+qa@test-mail.co.in", "x_y@site.org"]</code>.</li>
+  <li><strong>Why <code>(?:\.[\w-]+)+</code> and not <code>\.[\w.-]+</code>:</strong> the simpler version also grabs a full stop at the end of a sentence, so <code>"x@y.com."</code> would come out as <code>x@y.com.</code>.</li>
+  <li>This is a practical pattern for test data and logs, not a full validator. Real email validation is far more complex; for forms, test what the app accepts.</li>
+</ul>
+</body>
+</html>

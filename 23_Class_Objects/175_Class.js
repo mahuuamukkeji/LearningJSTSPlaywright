@@ -1,9 +1,21 @@
-class Person{
+class Person { // (CAB)
     // Attributes | Instance variables |  Data members | Properties
     #name;
     #age;
     #rollNo;
     #phoneNo;
+
+    // Constructor, Attributes, Behaviour - CAB
+
+
+    // # Constructor
+    //  **A special function that runs automatically, 
+    // once, at the moment an object is born.**
+    constructor() {
+        console.log("I will be called whenever an object is created. ")
+    }
+
+
 
     // Behaviour | Methods | Members Functions | 
     eat(){}
